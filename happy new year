@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+int main()
+{
+	int i = 0;
+	char newyear[20] = { 0 };
+	for (i = 0; i < 11; i++)
+	{
+		printf("新年快乐!      ");
+		scanf_s("%s", newyear, 20);
+		if (strcmp(newyear, "happy new year!") == 0)
+		{
+			printf("小阳给你拜年啦\n");
+			break;
+		}
+		else if (i == 0)
+			printf("2021不管你仍出门在外，或者是阖家团圆\n");
+
+		else if (i == 1)
+			printf("我希望牛年能给你带来好运气，万事如意，笑逐颜开\n");
+
+
+		else if (i == 2)
+			printf("一份耕耘，一份收货,生活不会辜负每一个努力的人，加油！\n");
+
+        else if (i == 3)
+			printf("时间飞逝，2020年的最后一天，我们也要微笑着去迎接，用力过好每一天，珍惜属于自己的每一刻，每一天都是崭新的。2020年的最后一天，也要加油哦!\n");
+			
+	    else if (i == 4)
+			printf("一年将毕，回头看看，年纪长了，经验增了，信心足了，能力强了;新年将至，翘首望望，打足底气，面对现实，积极努力，再创佳绩!\n");
+			
+		else if (i == 5)
+			printf("愿你所有的努力都不白费，所想的都能如愿，所做的都能实现，愿你往后路途，深情不再枉付。2021你好。\n");
+			
+		else if (i == 6)
+			printf("愿年末的钟声，带给你新年的欢喜!\n");
+			
+		else if (i == 7)
+			printf("不管发生什么，都不要放弃，坚持走下去，肯定会有意想不到的风景.\n");
+			
+		else if (i == 8)
+			printf("人不怕走在黑夜里，就怕心中没有阳光。\n");
+		
+		else if (i == 9)
+			printf("珍宝丢失了还可以找到，时间丢失了永远找不到。2020，再见;2021，你好!\n");
+			
+		else if (i == 10)
+			printf("2021目标，进入腾讯这种大公司，追逐梦想\n");
+			
+		else if (i == 11)
+			printf("不负青春年华，不负最好的自己\n");
+		
+	}
+system("pause");
+	return 0;
+}
