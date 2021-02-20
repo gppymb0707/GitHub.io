@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	//只要sizeof（数组名）以及&数组名这两种情况时，数组名表示整个数组，其他时候数组名都表示首元素的地址
+	int a[] = { 1, 2, 3, 4 };
+	printf("%d\n", sizeof(a));//sizeof（数组名）计算的是数组的总大小 4*4=16；
+	printf("%d\n", sizeof(a+0));//数组名不是单独的，那么a表示首元素的地址，a+0也表示首元素的地址，在32位平台上为4,64位平台上为8
+	printf("%d\n", sizeof(*a));//数组名表示首元素地址，*a为首元素，sizeof（*a）的值为4
+	printf("%d\n", sizeof(a+1));//和a+0道理相同，a+1表示第二个元素的地址，为4/8
+	printf("%d\n", sizeof(a[1]));//a[1]为第二个元素，sizeof(a[1])为第二个元素大小，为4
+	printf("%d\n", sizeof(&a));//&a取出数组的地址，也是4/8
+	printf("%d\n", sizeof(*&a));//&a是数组的地址，*&a对&a进行解引用，访问整个数组，为4*4=16
+	printf("%d\n", sizeof(&a+1));//&a为数组地址，&a+1跳过整个数组，但是大小一样为4/8
+	printf("%d\n", sizeof(&a[0]));//&a[0]为首元素的地址，为4/8
+	printf("%d\n", sizeof(&a[0]+1));//&a[0]+1是第二个元素的地址也是4/8
+	system("pause");
+	return 0;
+}
