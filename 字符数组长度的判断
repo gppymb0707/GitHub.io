@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	char arr[] = { 'a', 'b', 'c', 'd', 'e', 'f' };
+	printf("%d\n", strlen(arr));//没有\0，随机值
+	printf("%d\n", strlen(arr+0));//也是随机值
+	//printf("%d\n", strlen(*arr));//错误代码
+	//printf("%d\n", strlen(arr[1]));//错误代码
+	printf("%d\n", strlen(&arr));//随机值
+	printf("%d\n", strlen(&arr+1));//跳过一个数组，随机值-6
+	printf("%d\n", strlen(&arr[0]+1));//从b开始数，随机值-1
+	system("pause");
+	return 0;
+}
