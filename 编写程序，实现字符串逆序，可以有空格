@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <assert.h>//assert的头文件
+void reverse(char* str)
+{
+	assert(str);//注意审题，可以有空格
+	int len = strlen(str);
+
+	char*left = str;
+	char*right=str+len-1;
+
+	while (left < right)
+	{
+		char tmp = *left;
+		*left = *right;
+		*right = tmp;
+		left++;
+		right--;
+	}
+	
+}
+int main()
+{
+	char arr[256] = { 0 };
+	gets(arr);
+	reverse(arr);
+	printf("逆序后:%s\n", arr);
+	system("pause");
+	return 0;
+}
