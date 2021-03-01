@@ -1,0 +1,61 @@
+## 题目：
+ A选手说：B第二，我第三；
+B选手说：我第二，E第四；
+C选手说：我第一，D第二；
+D选手说：C最后，我第三；
+E选手说：我第四，A第一；
+比赛结束后，恰好每位选手都说对了一半，请用编程实现他们的名次
+
+## 分析：
+通过以上所给，我明知道五位选手每个人刚好说对一半，但是是哪一半我们不知道。我们知道在我们的计算机中，对为1，不对为0，只要我们**每位选手的两个预测相加都恰好等于1，那条件就成立了**，接下来我们动手写程序。
+
+
+```cpp
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	int d = 0;
+	int e = 0;
+	//每个选手取得的名次都是未知的，所以这种情况下，每个选手都进行一次循环，循环的范围就是可能取得名次的范围
+	for (a = 1; a <= 5; a++)
+	{
+		for (b = 1; b <= 5; b++)
+		{
+			for (c = 1; c <= 5; c++)
+			{
+				for (d = 1; d <= 5; d++)
+				{
+					for (e = 1; e <= 5; e++)
+					{
+					//当同时满足每个人说对一半时，条件成立，跳出循环，输出结果
+						if (((b == 2) + (a == 3) == 1) && 
+                             ((b == 2) + (e == 4) == 1) &&
+                               ((c == 1) + (d == 2) == 1) && 
+                                 ((c == 5) + (d == 3) == 1) &&
+                                   ((e == 4) + (a == 1) == 1))
+						{
+						//如果就按以上步骤去输出结果的话你会发现，输出了多种结果，如图1所示（在下面），这是因为每个名次只能有一位选手取得，这一点我们没有考虑到，如果让每位选手取得的成绩相乘（1*2*3*4*5）恰好等于120，这时候结果就唯一了						
+							if (a*b*c*d*e==120)
+							printf("a=%d b=%d c=%d d=%d e=%d\n", a, b, c, d, e);
+						}
+					}
+				}
+			}
+		}
+	}
+	system("pause");
+	return 0;
+}
+```
+## 图1
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210301084550746.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81NDc0ODI4MQ==,size_16,color_FFFFFF,t_70)
+## 最终我们得到的结果是
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210301084728649.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81NDc0ODI4MQ==,size_16,color_FFFFFF,t_70)
+回到最开始的预测，细心的朋友可能就会发现，C预测自己拿第一，结果却是倒数第一，真是个大预言家哈1！
+最后祝大家生活愉快，工作学习都第一！
+
+## <<<<<<博主都细的看不清了，确定不留个赞再走？>>>>>>>>>>
