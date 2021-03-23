@@ -1,0 +1,7 @@
+char a[]="xyz",b[]={'x','y','z'};
+if(strlen(a)>strlen(b))
+printf("a>b\n");
+else
+printf("a<=b\n");
+
+strlen(a)=3,b是数组，元素在内存中是连续存储的，而strlen函数要求字符串要以'\0'结尾，但是b数组中没有'\0'，所以strlen会继续向后查找，无论什么时候停止，strlen(b)的值一定会大于a
